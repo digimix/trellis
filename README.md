@@ -86,7 +86,6 @@ Full documentation: https://roots.io/trellis/docs/deploys/
 3. Run `./deploy.sh <environment> <site name>`
 4. To rollback a deploy, run `ansible-playbook rollback.yml -e "site=<site name> env=<environment>"`
 
-
 ## Configuration
 
 ### HHVM

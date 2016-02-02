@@ -86,33 +86,6 @@ Full documentation: https://roots.io/trellis/docs/deploys/
 3. Run `./deploy.sh <environment> <site name>`
 4. To rollback a deploy, run `ansible-playbook rollback.yml -e "site=<site name> env=<environment>"`
 
-### Example of deploying to a staging server
-
-Assumptions:
-- development enviroment is up and running
-- Your dev site is 'example.dev' and your staging site will be 'demo.example.com'
-- Mac OSX for local dev
-- github.com for your remote repo
-- Using WP Migrate DB Pro to manage database syncing
-- ssh keys for github, your mac, and your digital ocean droplet are all setup and the same
-- You've created a new droplet on Digital Ocean form Ubuntu 14.0.4 x64 
-- Security is not yet a concern, your project is either private or contains no valueable data
-
-Instuctions:
-1. Export a copy of your mysql database using WP Migrate DB and save it to ../site. Remember to change all instances of //example.dev to //demo.example.com
-2. Configure your [WordPress sites](#wordpress-sites) in `group_vars/staging/wordpress_sites.yml`. Try making the sitename, host, and site urls all the domain you plan to use like demo.example.com. 
-2. Add your server IP/hostnames to `hosts/staging`.
-3. Specify public SSH keys for `users` in `group_vars/all/users.yml`. See the [SSH Keys docs](https://roots.io/trellis/docs/ssh-keys/). Try using id_rsa.pub and uncommenting the github.com/username.keys. 
-4. commit and push to git
-4. Run `ansible-playbook server.yml -i hosts/staging -e env=staging`
-5. Upon completion, you can check you site, it should server an error code. 
-6. Add the `repo` (Git URL) of your Bedrock WordPress project in the corresponding `group_vars/staging/wordpress_sites.yml` file. Try the format git@github.com/username/project-name. 
-7. Set the `branch` you want to deploy (optional - defaults to `master`).
-8. Run `./deploy.sh staging <site name>`
-9. SSH into your site as web_user `web`. The default password is stored in `../trellis/vars/sudoer_passwords.yml`. 
-10. Import the copy of your database we made in step 1. Change directory to file location `cd /srv/www/demo.example.com/current` then import `mysql -u dbuser -pdbpassword example_db_name < example_staging_db.sql`
-11. Checkout your site and see if any files didn't make it over. Depending on how your .gitignore files are configured you should be missing a number of directories by default, e.g. uploads. 
-
 
 ## Configuration
 

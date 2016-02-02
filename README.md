@@ -21,7 +21,7 @@ Trellis will configure a server with the following and more:
 
 * Ubuntu 14.04 Trusty LTS
 * Nginx (with optional FastCGI micro-caching)
-* PHP 5.6 (or [HHVM](http://hhvm.com/))
+* PHP 7.0
 * [MariaDB](https://mariadb.org/) as a drop-in MySQL replacement (but better)
 * SSL support (A+ on https://www.ssllabs.com/ssltest/)
 * HTTP/2 support (requires SSL)
@@ -38,7 +38,7 @@ Trellis documentation is available at [https://roots.io/trellis/docs/](https://r
 
 ## Requirements
 
-* Ansible >= 1.9.2 - [Install](http://docs.ansible.com/intro_installation.html) • [Docs](http://docs.ansible.com/) • [Windows docs](https://roots.io/trellis/docs/windows/)
+* Ansible 1.9.2 to 1.9.4 (not 2.x - see [bug](https://github.com/roots/trellis/issues/469)) - [Install](http://docs.ansible.com/intro_installation.html) • [Docs](http://docs.ansible.com/) • [Windows docs](https://roots.io/trellis/docs/windows/)
 * Virtualbox >= 4.3.10 - [Install](https://www.virtualbox.org/wiki/Downloads)
 * Vagrant >= 1.5.4 - [Install](http://www.vagrantup.com/downloads.html) • [Docs](https://docs.vagrantup.com/v2/)
 * vagrant-bindfs >= 0.3.1 - [Install](https://github.com/gael-ian/vagrant-bindfs#installation) • [Docs](https://github.com/gael-ian/vagrant-bindfs) (Windows users may skip this)
@@ -87,10 +87,6 @@ Full documentation: https://roots.io/trellis/docs/deploys/
 4. To rollback a deploy, run `ansible-playbook rollback.yml -e "site=<site name> env=<environment>"`
 
 ## Configuration
-
-### HHVM
-
-[HHVM](http://hhvm.com/) can be used instead of PHP 5.6 by setting `hhvm: true` in `group_vars/all/main.yml`.
 
 ### WordPress Sites
 

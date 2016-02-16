@@ -26,3 +26,5 @@ wordpress_sites:
       db_name: example_dev
       db_user: example_dbuser
       # db_password: (defined in group_vars/development/vault.yml)
+    # db_import: ../site/example_dev.sql (option to import .sql on 'vagrant up') 
+

@@ -10,19 +10,23 @@ wordpress_sites:
     repo: git@github.com:digimix/digimix.git # replace with your Git repo URL
     repo_subtree_path: site # relative path to your Bedrock/WP directory in your repo
     branch: master
-    multisite:
-      enabled: true
+multisite: 
+enabled: true
+subdomains: false
 ssl:
 enabled: false
 provider: letsencrypt
-cache:
-enabled: false
+cache: 
+enabled: true
+duration: 30s
+skip_cache_uri: /wp-admin/|/xmlrpc.php|wp-.*.php|/feed/|index.php|sitemap(_index)?.xml
+skip_cache_cookie: comment_author|wordpress_[a-f0-9]+|wp-postpass|wordpress_no_cache|wordpress_logged_in
 env:
-      disable_wp_cron: false
-      domain_current_site: digimix.co
-      wp_home: http://digimix.dev
-      wp_siteurl: http://digimix.dev/wp
-      wp_env: production
-      db_name: digidata_prod
-      db_user: digidata5757
-      db_host: 10.142.0.2:3306
+disable_wp_cron: false
+domain_current_site: digimix.co
+wp_home: http://digimix.dev
+wp_siteurl: http://digimix.dev/wp
+wp_env: production
+db_name: digidata_prod
+db_user: digidata5757
+db_host: 10.142.0.2:3306

@@ -5,7 +5,13 @@
 wordpress_sites:
   digimix.co:
     site_hosts:
+<<<<<<< HEAD
       - digimix.dev
+=======
+      - canonical: example.dev
+        redirects:
+          - www.example.dev
+>>>>>>> roots/master
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
     admin_email: admin@digimix.dev
     multisite:

@@ -5,7 +5,13 @@
 wordpress_sites:
   digimix.co:
     site_hosts:
+<<<<<<< HEAD
       - digimix.co
+=======
+      - canonical: example.com
+        redirects:
+          - www.example.com
+>>>>>>> roots/master
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
     repo: git@github.com:digimix/digimix.git # replace with your Git repo URL
     repo_subtree_path: site # relative path to your Bedrock/WP directory in your repo
